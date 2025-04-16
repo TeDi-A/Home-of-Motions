@@ -19,7 +19,7 @@ const ScrollToFull = () => {
         ref={ref}
       >
         <motion.div
-          className="wrapper w-64 h-64 rounded-2xl border-2 sticky top-[40%] overflow-hidden bg-gray-600"
+          className="wrapper w-64 h-64 rounded-2xl border-2 sticky top-[35%] overflow-hidden bg-gray-600"
           style={{ scale: loadItem }}
         >
           <motion.div
