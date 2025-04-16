@@ -1,9 +1,4 @@
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 
 const makeColor = (hue) => `hsl(${hue}, 100%, 50%)`;
@@ -97,12 +92,6 @@ export default function PageUI() {
   const [index, setIndex] = useState(null);
   const boxRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: boxRef,
-    offset: ["start end", "end start"],
-  });
-  let height = useTransform(scrollYProgress, [0, 1], [50, 0]);
-
   return (
     <div>
       <div
@@ -129,12 +118,6 @@ export default function PageUI() {
             </>
           )}
         </AnimatePresence>
-        <motion.div
-          style={{ height }}
-          className="circle-container relative mt-20 w-screen "
-        >
-          <motion.div className="circle absolute h-[1550%] left-[-10%] w-[120%] bg-gray-900 z-10 rounded-br-[50%] rounded-bl-[50%]"></motion.div>
-        </motion.div>
       </div>
     </div>
   );

@@ -1,14 +1,8 @@
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
 import "../styles/Glowbox.css";
-import { useRef } from "react";
 
 export default function MoveOnMove() {
-  const boxRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: boxRef,
-    offset: ["start end", "end start"],
-  });
-  let height = useTransform(scrollYProgress, [0, 1], [50, 0]);
+
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -72,12 +66,7 @@ export default function MoveOnMove() {
             }}
           />
         </div>
-        <motion.div
-          style={{ height }}
-          className="circle-container relative mt-20 w-screen "
-        >
-          <motion.div className="circle absolute h-[1550%] left-[-10%] w-[120%] bg-black z-100 rounded-br-[50%] rounded-bl-[50%]"></motion.div>
-        </motion.div>
+       
       </div>
     </div>
   );
