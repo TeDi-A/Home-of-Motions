@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { useEffect } from "react";
+import { motion, animate, useAnimate } from "motion/react";
 
 const projects = [
   { id: 1, name: "Cascade", path: "/cascade" },
@@ -10,12 +11,12 @@ const projects = [
   { id: 6, name: "Drag Transform", path: "/dragtransform" },
   { id: 7, name: "Stagger Nav", path: "/staggernav" },
   { id: 8, name: "Tab Switch", path: "/tabswitch" },
-//   { id: 9, name: "Drag Page", path: "/dragpage" },
+  //   { id: 9, name: "Drag Page", path: "/dragpage" },
   { id: 10, name: "Infinite Scroll", path: "/infinitescroll" },
   { id: 11, name: "Scroll to Full", path: "/scrolltofull" },
-//   { id: 12, name: "Mobile Logo", path: "/mobilelogo" },
+  //   { id: 12, name: "Mobile Logo", path: "/mobilelogo" },
   { id: 13, name: "Lighthouse", path: "/lighthouse" },
-//   { id: 14, name: "Carousel", path: "/carousel" },
+  //   { id: 14, name: "Carousel", path: "/carousel" },
   { id: 15, name: "Animate Count", path: "/animatecount" },
   { id: 16, name: "Text Scroll", path: "/textscroll" },
   { id: 17, name: "Move on Move", path: "/moveonmove" },
@@ -24,11 +25,40 @@ const projects = [
 ];
 
 export default function Home() {
+  const [motionRef, animate] = useAnimate();
+  useEffect(() => {
+    const motionElement = motionRef.current;
+
+    const motionAnimation = animate(
+      motionElement,
+      { backgroundColor: ["#7B68EE", "#00CCCC", "#0076CE"] },
+      {
+        duration: 1.75,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "linear",
+      }
+    );
+    return () => {
+      motionAnimation.cancel();
+    };
+  }, []);
+
   return (
     <>
       <div className="flex flex-col items-center justify-center w-screen h-screen bg-gray-900 text-white gap-4 p-6">
-        <motion.div className="text-4xl font-bold text-center">
-          Welcome to Home of Motions
+        <motion.div className="text-4xl md:text-7xl font-bold text-center">
+          Welcome to Home of {""}
+          <motion.span
+            ref={motionRef}
+            style={{
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            className="span"
+          >
+             Motions
+          </motion.span>
         </motion.div>
         <div className="flex flex-wrap justify-center items-center gap-4 p-8">
           {projects
