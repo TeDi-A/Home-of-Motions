@@ -36,7 +36,7 @@ function scrollOverflowMask(scrollXProgress) {
     ) {
       animate(
         maskImage,
-        `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`
+        `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})` 
       );
     }
   });
