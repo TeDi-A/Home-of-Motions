@@ -28,7 +28,7 @@ export default function Home() {
     <>
       <div className="flex flex-col items-center justify-center w-screen h-screen bg-gray-900 text-white gap-4 p-6">
         <motion.div className="text-4xl font-bold text-center">
-          Welcome to Home of Motion
+          Welcome to Home of Motions
         </motion.div>
         <div className="flex flex-wrap justify-center items-center gap-4 p-8">
           {projects
