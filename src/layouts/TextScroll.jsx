@@ -5,8 +5,8 @@ const TextScroll = () => {
   const textRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: textRef });
   const scrollPage = [0, 0.5, 1];
-  const scrollTextA = [1000, 0, -1000];
-  const scrollTextB = [-1000, 0, 1000];
+  const scrollTextA = [500, 0, -500];
+  const scrollTextB = [-500, 0, 500];
   const opacity = [0, 1, 0];
 
   const moveTextA = useTransform(scrollYProgress, scrollPage, scrollTextA);
@@ -18,8 +18,17 @@ const TextScroll = () => {
       ref={textRef}
       className="text-scroll bg-cyan-900 w-screen h-[300vh] relative"
     >
-      <div className="text-container sticky top-[20vh] flex flex-col gap-20 w-full text-center  overflow-hidden">
-        <motion.div className="" style={{ x: moveTextA, opacity: fadeText }}>
+      <div className="text-container sticky top-[40vh] flex flex-col gap-20 w-full text-center  overflow-hidden">
+        <motion.div
+          className=""
+          style={{ x: moveTextA, opacity: fadeText }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            duration: 0.4,
+            ease: "easeInOut",
+          }}
+        >
           <p className="text-5xl text-white font-bold text-nowrap">
             Create Your Experience
           </p>
