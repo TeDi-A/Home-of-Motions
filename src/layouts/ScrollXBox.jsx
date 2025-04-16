@@ -74,7 +74,7 @@ const ScrollXBox = () => {
 
       <motion.div
         ref={ref}
-        className="element-container overflow-x-scroll w-96 flex gap-4"
+        className="element-container overflow-x-scroll w-72 flex gap-4"
         style={{
           maskImage: maskImage
           // maskImage: maskImage.get(),
@@ -84,7 +84,7 @@ const ScrollXBox = () => {
         {elements.map((_, index) => (
           <li
             key={index}
-            className={`${colors[index]} w-64 h-64 flex-shrink-0 list-none`}
+            className={`${colors[index]} w-48 h-48 flex-shrink-0 list-none`}
           ></li>
         ))}
       </motion.div>

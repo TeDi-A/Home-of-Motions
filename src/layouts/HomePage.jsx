@@ -83,7 +83,7 @@ export default function Home() {
             .map((project) => (
               <motion.span
                 className="p-1"
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={{ scale: 1.1}}
               >
                 <Link
                   key={project.id}
