@@ -22,16 +22,16 @@ const Cascade = () => {
       y: 0,
       scale: 1,
       transition: {
-        duration: 1,
+        duration: 0.8,
         type: "spring",
       },
     }),
   };
 
   return (
-    <div className="cascade h-screen flex flex-col justify-center items-center gap-4 bg-blue-100">
+    <div className="cascade h-screen flex flex-col justify-center items-center gap-4 bg-teal-950">
       <motion.button
-        className="bg-violet-300 p-4 cursor-pointer rounded-2xl shadow-md"
+        className="bg-gray-600 p-4 cursor-pointer rounded-2xl  text-white font-bold"
         onClick={() => setAnimationState("ascend")}
         whileHover={{ scale: 0.9 }}
       >
