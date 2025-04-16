@@ -29,9 +29,9 @@ export default function DragCarousel() {
   function handleOnDragEnd() {
     const dragXVal = dragX.get();
 
-    if (dragXVal > 100 && ImgIndex > 0) {
+    if (dragXVal > 70 && ImgIndex > 0) {
       setImgIndex((prev) => prev - 1);
-    } else if (dragXVal < -100 && ImgIndex < imgs.length - 1) {
+    } else if (dragXVal < -70 && ImgIndex < imgs.length - 1) {
       setImgIndex((prev) => prev + 1);
     }
   }
