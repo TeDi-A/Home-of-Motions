@@ -4,12 +4,10 @@ import {
   useMotionValue,
   useMotionValueEvent,
   useScroll,
+  animate,
 } from "motion/react";
 
-const ScrollXBox = () => {
-  const ref = useRef(null);
-  const { scrollXProgress } = useScroll({ container: ref });
-
+function scrollOverflowMask(scrollXProgress) {
   const left = `0%`;
   const right = `100%`;
   const leftInset = `20%`;
@@ -17,27 +15,38 @@ const ScrollXBox = () => {
   const transparent = `#0000`;
   const opaque = `#000`;
 
-  const [maskImage, setMaskImage] = useState(
-    `linear-gradient(90deg, ${opaque}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`
+  const maskImage = useMotionValue(
+    `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`
   );
 
-  useEffect(() => {
-    return scrollXProgress.on("change", (value) => {
-      if (value === 0) {
-        setMaskImage(
-          `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`
-        );
-      } else if (value === 1) {
-        setMaskImage(
-          `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`
-        );
-      } else {
-        setMaskImage(
-          `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`
-        );
-      }
-    });
-  }, [scrollXProgress]);
+  useMotionValueEvent(scrollXProgress, "change", (latest) => {
+    if (latest === 0) {
+      animate(
+        maskImage,
+        `linear-gradient(90deg, ${opaque}, ${opaque} ${left}, ${opaque} ${rightInset}, ${transparent})`
+      );
+    } else if (latest === 1) {
+      animate(
+        maskImage,
+        `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`
+      );
+    } else if (
+      scrollXProgress.getPrevious() === 0 ||
+      scrollXProgress.getPrevious() === 1
+    ) {
+      animate(
+        maskImage,
+        `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`
+      );
+    }
+  });
+
+  return maskImage;
+}
+
+const ScrollXBox = () => {
+  const boxRef = useRef(null);
+  const { scrollXProgress } = useScroll({ container: boxRef });
 
   const elements = ["A", "B", "C", "D"];
   const colors = [
@@ -47,7 +56,7 @@ const ScrollXBox = () => {
     "bg-purple-900",
   ];
 
-  // const maskImage = useScrollOverflowMask(scrollXProgress);
+  const maskImage = scrollOverflowMask(scrollXProgress);
 
   return (
     <div className="scroll-x h-screen flex flex-col justify-center items-center gap-4 bg-black">
@@ -73,10 +82,10 @@ const ScrollXBox = () => {
       </svg>
 
       <motion.div
-        ref={ref}
+        ref={boxRef}
         className="element-container overflow-x-scroll w-72 flex gap-4"
         style={{
-          maskImage: maskImage
+          maskImage: maskImage,
           // maskImage: maskImage.get(),
           // WebkitMaskImage: maskImage.get(),
         }}
