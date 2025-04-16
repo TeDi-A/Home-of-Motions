@@ -25,11 +25,14 @@ const projects = [
 ];
 
 export default function Home() {
-  const [motionRef, animate] = useAnimate();
-  useEffect(() => {
-    const motionElement = motionRef.current;
+  const [gradientRef, gradient] = useAnimate();
+  const [floatRef, float] = useAnimate();
 
-    const motionAnimation = animate(
+  useEffect(() => {
+    const motionElement = gradientRef.current;
+    const floatElement = floatRef.current;
+
+    const gradientAnimation = gradient(
       motionElement,
       { backgroundColor: ["#7B68EE", "#00CCCC", "#0076CE"] },
       {
@@ -39,8 +42,21 @@ export default function Home() {
         ease: "linear",
       }
     );
+
+    const floatAnimation = float(
+      floatElement,
+      { scaleX: [0.9, 1.15] },
+      // { y: ["10%", "-10%"] },
+      {
+        duration: 0.75,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      }
+    );
     return () => {
-      motionAnimation.cancel();
+      gradientAnimation.cancel();
+      floatAnimation.cancel();
     };
   }, []);
 
@@ -48,30 +64,35 @@ export default function Home() {
     <>
       <div className="flex flex-col items-center justify-center w-screen h-screen bg-gray-900 text-white gap-4 p-6">
         <motion.div className="text-4xl md:text-7xl font-bold text-center">
-          Welcome to Home of {""}
           <motion.span
-            ref={motionRef}
+            ref={gradientRef}
             style={{
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
-            className="span"
           >
-             Motions
-          </motion.span>
+            Welcome
+          </motion.span>{" "}
+          to Home of {""}
+          <motion.h1 ref={floatRef}>Motions</motion.h1>
         </motion.div>
         <div className="flex flex-wrap justify-center items-center gap-4 p-8">
           {projects
             .slice()
             .reverse()
             .map((project) => (
-              <Link
-                key={project.id}
-                to={project.path}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg m-2 font-bold"
+              <motion.span
+                className="p-1"
+                whileHover={{ scale: 1.1, y: -5 }}
               >
-                {project.name}
-              </Link>
+                <Link
+                  key={project.id}
+                  to={project.path}
+                  className="bg-blue-700 text-white p-2 rounded-lg m-4 font-bold"
+                >
+                  {project.name}
+                </Link>
+              </motion.span>
             ))}
         </div>
       </div>
