@@ -1,0 +1,23 @@
+.move-box {
+  position: relative;
+  overflow: hidden; /* So the glow doesn't spill out */
+}
+
+.panel {
+  position: relative;
+}
+
+.move-box::before {
+  --size: 200px;
+  content: "";
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  /* background: radial-gradient(circle closest-side, pink, transparent); */
+  background: radial-gradient(circle closest-side, #c2ffbd, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+  pointer-events: none;
+}
