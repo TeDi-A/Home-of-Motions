@@ -6,7 +6,7 @@ const ScrollToFull = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const scrollLevel = [0, 0.95];
-  const scale = [0.75, 1.75];
+  const scale = [0.55, 1.25];
   const yVal = [280, 0];
 
   const loadItem = useTransform(scrollYProgress, scrollLevel, scale);
