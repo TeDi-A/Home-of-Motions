@@ -3,7 +3,7 @@ import "../styles/Glowbox.css";
 import { useRef } from "react";
 
 export default function MoveOnMove() {
-  const boxRef = useRef(null);
+  const boxRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: boxRef,
     offset: ["start end", "end start"],
