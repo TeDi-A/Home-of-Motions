@@ -88,7 +88,7 @@ export default function Home() {
                 <Link
                   key={project.id}
                   to={project.path}
-                  className="bg-blue-700 text-white p-2 rounded-lg m-4 font-bold"
+                  className="bg-blue-600 text-white p-2 rounded-lg m-4 font-bold"
                 >
                   {project.name}
                 </Link>
