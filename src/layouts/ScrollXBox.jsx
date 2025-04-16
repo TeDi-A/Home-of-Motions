@@ -31,8 +31,8 @@ function scrollOverflowMask(scrollXProgress) {
         `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${right}, ${opaque})`
       );
     } else if (
-      scrollXProgress.getPrevious() === 0 ||
-      scrollXProgress.getPrevious() === 1
+      scrollXProgress.getPrevious() > 0 &&
+      scrollXProgress.getPrevious() < 1
     ) {
       animate(
         maskImage,
@@ -59,7 +59,7 @@ const ScrollXBox = () => {
   const maskImage = scrollOverflowMask(scrollXProgress);
 
   return (
-    <div className="scroll-x h-screen flex flex-col justify-center items-center gap-4 bg-black">
+    <div className="scroll-x h-screen flex flex-col justify-center items-center gap-4 bg-black ">
       <svg id="progress" width="80" height="80" viewBox="0 0 100 100">
         <circle
           cx="50"
@@ -83,7 +83,7 @@ const ScrollXBox = () => {
 
       <motion.div
         ref={boxRef}
-        className="element-container overflow-x-scroll w-72 flex gap-4"
+        className="element-container overflow-x-scroll w-72 flex gap-4 "
         style={{
           maskImage: maskImage,
           // maskImage: maskImage.get(),
