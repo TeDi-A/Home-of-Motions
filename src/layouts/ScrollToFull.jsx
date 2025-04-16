@@ -7,7 +7,7 @@ const ScrollToFull = () => {
   const { scrollYProgress } = useScroll({ target: ref });
   const scrollLevel = [0, 0.95];
   const scale = [0.5, 1.5];
-  const yVal = [300, 0];
+  const yVal = [280, 0];
 
   const loadItem = useTransform(scrollYProgress, scrollLevel, scale);
   const yLevel = useTransform(scrollYProgress, scrollLevel, yVal);
@@ -24,7 +24,7 @@ const ScrollToFull = () => {
         >
           <motion.div
             className="bg-white w-[inherit] h-[inherit] origin-bottom"
-            // initial={{ marginTop: 1000 }}
+      
             style={{ y: yLevel }}
           ></motion.div>
         </motion.div>
