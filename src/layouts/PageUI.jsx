@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 
-const makeColor = (hue) => `hsl(${hue}, 100%, 50%)`;
-const colors = Array.from({ length: 6 }, (_, i) => makeColor(i * 40));
+const makeColor = (hue) => `hsl(${hue}, 100%, 40%)`;
+const colors = Array.from({ length: 6 }, (_, i) => makeColor(i * 100));
 const pages = ["A", "B", "C", "D", "E", "F"];
 
 function Card({ color, page, index, setIndex }) {
