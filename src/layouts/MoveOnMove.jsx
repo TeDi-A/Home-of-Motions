@@ -1,8 +1,9 @@
 import { motion, useMotionValue, useTransform, useScroll } from "framer-motion";
 import "../styles/Glowbox.css";
+import { useRef } from "react";
 
 export default function MoveOnMove() {
-
+const boxRef = useRef(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
