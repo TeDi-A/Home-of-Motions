@@ -5,7 +5,7 @@ import { motion, useTransform, useScroll } from "motion/react";
 const ScrollToFull = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const scrollLevel = [0, 1];
+  const scrollLevel = [0, 0.95];
   const scale = [0.5, 1.5];
   const yVal = [300, 0];
 
