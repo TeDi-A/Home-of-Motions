@@ -36,7 +36,7 @@ function scrollOverflowMask(scrollXProgress) {
     ) {
       animate(
         maskImage,
-        `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})` 
+        `linear-gradient(90deg, ${transparent}, ${opaque} ${leftInset}, ${opaque} ${rightInset}, ${transparent})`
       );
     }
   });
@@ -81,13 +81,12 @@ const ScrollXBox = () => {
         />
       </svg>
 
-      <motion.div
+      <motion.ul
         ref={boxRef}
-        className="element-container overflow-x-scroll w-72 flex gap-4 "
+        className="element-container overflow-x-scroll w-72 flex gap-4"
         style={{
           maskImage: maskImage,
-          // maskImage: maskImage.get(),
-          // WebkitMaskImage: maskImage.get(),
+          WebkitMaskImage: maskImage.get(),
         }}
       >
         {elements.map((_, index) => (
@@ -96,7 +95,7 @@ const ScrollXBox = () => {
             className={`${colors[index]} w-48 h-48 flex-shrink-0 list-none`}
           ></li>
         ))}
-      </motion.div>
+      </motion.ul>
     </div>
   );
 };
