@@ -83,7 +83,7 @@ const ScrollXBox = () => {
 
       <motion.ul
         ref={boxRef}
-        className="element-container overflow-x-scroll w-72 flex gap-4"
+        className="element-container overflow-x-scroll w-72 flex"
         style={{
           maskImage: maskImage,
           WebkitMaskImage: maskImage.get(),
