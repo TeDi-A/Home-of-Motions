@@ -2,7 +2,7 @@ import { motion, useTransform, useScroll } from "motion/react";
 
 export default function Cards() {
   const imgs = [
-    "../img-7.jpg",
+    "../img-18.jpg",
     "../img-12.jpg",
     "../img-9.jpg",
     "../img-14.jpg",
