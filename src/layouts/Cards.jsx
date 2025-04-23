@@ -53,7 +53,7 @@ export default function Cards() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="flex justify-center w-screen h-[300vh] bg-gray-900 text-white relative">
+    <div className="flex justify-center w-screen h-[300dvh] bg-gray-900 text-white relative">
       {content.map((item, index) => {
         const originY = (index + 1) * window.innerHeight;
 
