@@ -1,5 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { motion } from "motion/react";
 
 import SharedLayout from "./layouts/Shared";
 import Cascade from "./layouts/Cascade";
@@ -23,16 +24,19 @@ import AnimateCount from "./layouts/AnimateCount";
 import PageUI from "./layouts/PageUI";
 import DragCarousel from "./layouts/DragCarousel";
 import Home from "./layouts/HomePage";
+import Cards from "./layouts/Cards";
+import { withFade } from "./helpers/PageWrap";
 
-const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/dragcarousel", element: <DragCarousel /> },
-  { path: "/pageui", element: <PageUI /> },
-  { path: "/animatecount", element: <AnimateCount /> },
-  { path: "/moveonmove", element: <MoveOnMove /> },
+const pages = [
+  { path: "/", element: <Home />, wrap: true },
+  { path: "/cards", element: <Cards />, wrap: true },
+  { path: "/dragcarousel", element: <DragCarousel />, wrap: true },
+  { path: "/pageui", element: <PageUI />, wrap: true },
+  { path: "/animatecount", element: <AnimateCount />, wrap: true },
+  { path: "/moveonmove", element: <MoveOnMove />, wrap: true },
   { path: "/textscroll", element: <TextScroll /> },
   { path: "/carousel", element: <Carousel /> },
-  { path: "/lighthouse", element: <Lighthouse /> },
+  { path: "/lighthouse", element: <Lighthouse />, wrap: true },
   { path: "/mobileLogo", element: <MobileLogo /> },
   { path: "/scrolltofull", element: <ScrollToFull /> },
   { path: "/infinitescroll", element: <InfiniteScroll /> },
@@ -46,8 +50,13 @@ const router = createBrowserRouter([
   { path: "/cascade", element: <Cascade /> },
   { path: "/sharedlayout", element: <SharedLayout /> },
   { path: "/slideshow", element: <Slideshow /> },
-]);
-
+];
+const router = createBrowserRouter(
+  pages.map(({ path, element, wrap }) => ({
+    path,
+    element: wrap === true ? withFade(element) : element,
+  }))
+);
 function App() {
   return <RouterProvider router={router} />;
 }

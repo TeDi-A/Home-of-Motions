@@ -24,7 +24,7 @@ const Card = ({ setNotificationItems, notificationItems, index }) => {
 const Button = ({ content, onClick }) => {
   return (
     <div
-      className="add-btn font-bold   bg-white rounded-full w-16 h-16 flex justify-center items-center cursor-pointer"
+      className="add-btn font-bold bg-white rounded-full min-w-16 min-h-16 flex justify-center items-center cursor-pointer"
       onClick={onClick}
     >
       {content}
@@ -34,7 +34,7 @@ const Button = ({ content, onClick }) => {
 
 const CardContainer = ({ setNotificationItems, notificationItems }) => {
   return (
-    <ul className="flex flex-col gap-4">
+    <ul className="flex flex-col gap-4 ">
       <AnimatePresence>
         {notificationItems.map((id, index) => (
           <Card
@@ -57,7 +57,7 @@ const NotificationsApp = () => {
   }
 
   return (
-    <div className="notification-app bg-pink-600 w-screen h-screen flex flex-col justify-end items-end md:justify-between gap-4 p-12 ">
+    <div className="notification-app bg-emerald-700 w-screen h-screen flex  md:flex-row-reverse md:justify-between flex-col justify-end items-end gap-4 p-12 ">
       <CardContainer
         setNotificationItems={setNotificationItems}
         notificationItems={notificationItems}

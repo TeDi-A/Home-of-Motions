@@ -1,5 +1,4 @@
 import { motion, useMotionValue, useMotionValueEvent } from "motion/react";
-import { img } from "motion/react-client";
 import { useEffect, useState } from "react";
 
 const imgs = [

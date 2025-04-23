@@ -22,6 +22,7 @@ const projects = [
   { id: 17, name: "Move on Move", path: "/moveonmove" },
   { id: 18, name: "Page UI", path: "/pageui" },
   { id: 19, name: "Drag Carousel", path: "/dragcarousel" },
+  { id: 20, name: "Cards", path: "/cards" },
 ];
 
 export default function Home() {

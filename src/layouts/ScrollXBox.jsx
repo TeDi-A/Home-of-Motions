@@ -83,7 +83,7 @@ const ScrollXBox = () => {
 
       <motion.ul
         ref={boxRef}
-        className="element-container overflow-x-scroll w-72 flex"
+        className="element-container overflow-x-scroll w-72 flex "
         style={{
           maskImage: maskImage,
           WebkitMaskImage: maskImage.get(),
@@ -92,7 +92,7 @@ const ScrollXBox = () => {
         {elements.map((_, index) => (
           <li
             key={index}
-            className={`${colors[index]} w-48 h-48 flex-shrink-0 list-none`}
+            className={`${colors[index]} w-48 h-48 flex-shrink-0 list-none `}
           ></li>
         ))}
       </motion.ul>
