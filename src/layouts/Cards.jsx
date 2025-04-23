@@ -22,7 +22,7 @@ export default function Cards() {
       title: "Title 1",
       description: "Description 1",
       img: imgs[0],
-      color: colors[x`0],
+      color: colors[0],
     },
     {
       title: "Title 2",
@@ -66,7 +66,7 @@ export default function Cards() {
         const scaleCard = useTransform(
           scrollYProgress,
           [0, 1],
-          [1, 0.8 + (index/content.length) * 0.2]
+          [1, 0.8 + (index / content.length) * 0.2]
         );
 
         return (
