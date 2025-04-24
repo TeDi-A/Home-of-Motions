@@ -10,7 +10,7 @@ export default function Cards() {
   ];
 
   const colors = [
-    "bg-red-800",
+    "bg-red-900",
     "bg-blue-900",
     "bg-teal-900",
     "bg-green-900",

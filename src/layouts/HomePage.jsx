@@ -23,6 +23,7 @@ const projects = [
   { id: 18, name: "Page UI", path: "/pageui" },
   { id: 19, name: "Drag Carousel", path: "/dragcarousel" },
   { id: 20, name: "Cards", path: "/cards" },
+  { id: 21, name: "Vignette", path: "/vignette" },
 ];
 
 export default function Home() {

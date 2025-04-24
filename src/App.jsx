@@ -25,10 +25,12 @@ import PageUI from "./layouts/PageUI";
 import DragCarousel from "./layouts/DragCarousel";
 import Home from "./layouts/HomePage";
 import Cards from "./layouts/Cards";
+import Vignette from "./layouts/Vignette";
 import { withFade } from "./helpers/PageWrap";
 
 const pages = [
   { path: "/", element: <Home />, wrap: true },
+  { path: "/vignette", element: <Vignette />, wrap: true },
   { path: "/cards", element: <Cards />, wrap: true },
   { path: "/dragcarousel", element: <DragCarousel />, wrap: true },
   { path: "/pageui", element: <PageUI />, wrap: true },
