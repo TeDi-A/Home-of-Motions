@@ -21,10 +21,6 @@ export default function DragCarousel() {
     return () => clearInterval(intervalRef);
   }, []);
 
-  useMotionValueEvent(dragX, "change", (latest) => {
-    console.log(latest);
-  });
-
   function handleOnDragEnd() {
     const dragXVal = dragX.get();
 

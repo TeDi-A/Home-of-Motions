@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 const InfiniteScroll = () => {
+  const [listItems, setListItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const hueRef = useRef(0);
   const hueStep = 10;
   const count = 12;
@@ -15,13 +18,9 @@ const InfiniteScroll = () => {
     return newList;
   };
 
-  const [listItems, setListItems] = useState([]);
-
   useEffect(() => {
     setListItems(generateList(count));
   }, []);
-
-  const [isLoading, setIsLoading] = useState(false);
 
   const fetchList = () => {
     setIsLoading(true);

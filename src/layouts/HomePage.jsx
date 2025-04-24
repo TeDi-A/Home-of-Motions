@@ -84,11 +84,11 @@ export default function Home() {
             .reverse()
             .map((project) => (
               <motion.span
+                  key={project.id}
                 className="p-1"
                 whileHover={{ scale: 1.1}}
               >
                 <Link
-                  key={project.id}
                   to={project.path}
                   className="bg-blue-600 text-white p-2 rounded-lg m-4 font-bold"
                 >
