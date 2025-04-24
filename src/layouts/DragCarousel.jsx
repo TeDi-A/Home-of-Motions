@@ -34,13 +34,11 @@ export default function DragCarousel() {
   return (
     <>
       <div className="carousel-land w-screen h-screen flex justify-center items-center bg-gray-950">
-        <div className="carousel-frame border-2 border-gray-600 w-4/5 rounded-2xl  relative flex items-center overflow-hidden">
+        <div className="carousel-frame border-2 border-gray-600 w-4/5 rounded-2xl relative flex items-center overflow-hidden">
           <motion.div
             drag="x"
             style={{ x: dragX }}
             animate={{
-              scale: 1,
-              opacity: 1,
               translateX: `-${ImgIndex * 100}%`,
             }}
             transition={{ type: "spring", stiffness: 200, damping: 30 }}

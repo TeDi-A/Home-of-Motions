@@ -15,7 +15,6 @@ import StaggerNav from "./layouts/StaggerNav";
 import DragPage from "./layouts/DragPage";
 import InfiniteScroll from "./layouts/InfiniteScroll";
 import ScrollToFull from "./layouts/ScrollToFull";
-import MobileLogo from "./layouts/MobileLogo";
 import Lighthouse from "./layouts/Lighthouse";
 import Carousel from "./layouts/Carousel";
 import TextScroll from "./layouts/TextScroll";
@@ -26,10 +25,12 @@ import DragCarousel from "./layouts/DragCarousel";
 import Home from "./layouts/HomePage";
 import Cards from "./layouts/Cards";
 import Vignette from "./layouts/Vignette";
+import StaggerCarousel from "./layouts/StaggerCarousel";
 import { withFade } from "./helpers/PageWrap";
 
 const pages = [
   { path: "/", element: <Home />, wrap: true },
+  { path: "/staggercarousel", element: <StaggerCarousel /> },
   { path: "/vignette", element: <Vignette />, wrap: true },
   { path: "/cards", element: <Cards />, wrap: true },
   { path: "/dragcarousel", element: <DragCarousel />, wrap: true },
@@ -39,7 +40,6 @@ const pages = [
   { path: "/textscroll", element: <TextScroll /> },
   { path: "/carousel", element: <Carousel /> },
   { path: "/lighthouse", element: <Lighthouse />, wrap: true },
-  { path: "/mobileLogo", element: <MobileLogo /> },
   { path: "/scrolltofull", element: <ScrollToFull /> },
   { path: "/infinitescroll", element: <InfiniteScroll /> },
   { path: "/animateentry", element: <AnimateEntry /> },
@@ -50,7 +50,7 @@ const pages = [
   { path: "/notificationsapp", element: <NotificationsApp /> },
   { path: "/scrollxbox", element: <ScrollXBox /> },
   { path: "/cascade", element: <Cascade /> },
-  { path: "/sharedlayout", element: <SharedLayout /> },
+
   { path: "/slideshow", element: <Slideshow /> },
 ];
 const router = createBrowserRouter(
