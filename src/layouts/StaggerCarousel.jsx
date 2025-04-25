@@ -16,7 +16,7 @@ const carouselImages = [
 
 export default function StaggerCarousel() {
   const [images, setImages] = useState(carouselImages);
-  const [selectedIndex, setSelectedIndex] = useState(4);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   let itemWidth;
 
@@ -27,23 +27,19 @@ export default function StaggerCarousel() {
   }
 
   const handleOnClick = (index) => {
-    // const updated = [...images];
-    // const [clicked] = updated.splice(images.length + 1, 0, index);
-    // updated.push(clicked);
-    // setImages(updated);
+    const clicked = images[index];
+    const updated = [...images, clicked];
+    setImages(updated);
     setSelectedIndex(index);
-
-    // const offset = selectedIndex * -100%;
   };
-
   return (
     <div className="carousel-container w-screen h-screen flex items-center justify-center bg-gray-900">
-      <motion.ul className="carousel-list relative overflow-hidden h-[500px] min-w-[300px] md:min-w-[500px]">
+      <motion.ul className="carousel-list relative overflow-hidden h-[500px] min-w-[300px] md:min-w-[700px]">
         {images.map((img, index) => {
           return (
             <motion.li
               key={index}
-              className="carousel-item w-[100px] md:w-[200px] h-48 rounded-lg absolute left-1/3 top-1/3 cursor-pointer"
+              className="carousel-item w-[100px] md:w-[200px] h-48 rounded-lg absolute left-1/2 top-1/2 cursor-pointer transform -translate-x-1/2 -translate-y-1/2"
               animate={{
                 translateX: (index - selectedIndex) * itemWidth,
                 y: -50 + (selectedIndex === index ? -20 : 10),
@@ -59,7 +55,7 @@ export default function StaggerCarousel() {
                 backgroundImage: `url(${img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                // transform: "translateX(-50%)",  // Correct centering
+           
               }}
               onClick={() => handleOnClick(index)}
             ></motion.li>
