@@ -15,35 +15,42 @@ const carouselImages = [
 ];
 
 export default function StaggerCarousel() {
-  const [selectedIndex, setSelectedIndex] = useState(3);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [images, setImages] = useState(carouselImages);
+  const [selectedIndex, setSelectedIndex] = useState(4);
 
-  const handleOnClick = (e) => {
-    const clickedItem = e.currentTarget;
-    const clickedIndex = Array.from(clickedItem.parentNode.children).indexOf(
-      clickedItem
-    );
+  let itemWidth;
 
-    setSelectedIndex(clickedIndex);
-    setIsAnimating(true);
+  if (window.innerWidth > 768) {
+    itemWidth = 200 + 20;
+  } else {
+    itemWidth = 100 + 20;
+  }
+
+  const handleOnClick = (index) => {
+    // const updated = [...images];
+    // const [clicked] = updated.splice(images.length + 1, 0, index);
+    // updated.push(clicked);
+    // setImages(updated);
+    setSelectedIndex(index);
+
+    // const offset = selectedIndex * -100%;
   };
 
   return (
     <div className="carousel-container w-screen h-screen flex items-center justify-center bg-gray-900">
-      <motion.ul className="carousel-list flex items-center h-full overflow-hidden w-[90vw] md:w-150 gap-4 ">
-        {carouselImages.map((img, index) => {
+      <motion.ul className="carousel-list relative overflow-hidden h-[500px] min-w-[300px] md:min-w-[500px]">
+        {images.map((img, index) => {
           return (
             <motion.li
               key={index}
-              className="carousel-item w-48 h-48 m-4 rounded-lg flex items-center justify-center text-white text-xl font-bold shrink-0 gap-2 cursor-pointer"
+              className="carousel-item w-[100px] md:w-[200px] h-48 rounded-lg absolute left-1/3 top-1/3 cursor-pointer"
               animate={{
-                translateX: `-${selectedIndex * 100}%`,
-                y: selectedIndex === index ? -20 : 10,
+                translateX: (index - selectedIndex) * itemWidth,
+                y: -50 + (selectedIndex === index ? -20 : 10),
                 rotate: selectedIndex === index ? 0 : 5,
                 opacity: selectedIndex === index ? 1 : 0.5,
                 transition: {
-                  duration: 0.05,
-                  //   delay: index * 0.1,
+                  duration: 0.3,
                   type: "spring",
                   stiffness: 100,
                 },
@@ -52,8 +59,9 @@ export default function StaggerCarousel() {
                 backgroundImage: `url(${img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                // transform: "translateX(-50%)",  // Correct centering
               }}
-              onClick={handleOnClick}
+              onClick={() => handleOnClick(index)}
             ></motion.li>
           );
         })}
