@@ -27,11 +27,10 @@ export default function StaggerCarousel() {
   }
 
   const handleOnClick = (index) => {
-    const clicked = images[index];
-    const updated = [...images, clicked];
-    setImages(updated);
+
     setSelectedIndex(index);
   };
+
   return (
     <div className="carousel-container w-screen h-screen flex items-center justify-center bg-gray-900">
       <motion.ul className="carousel-list relative overflow-hidden h-[500px] min-w-[300px] md:min-w-[700px]">
@@ -55,7 +54,6 @@ export default function StaggerCarousel() {
                 backgroundImage: `url(${img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-           
               }}
               onClick={() => handleOnClick(index)}
             ></motion.li>
