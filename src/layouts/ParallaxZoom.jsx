@@ -20,7 +20,7 @@ export default function ParallaxZoom() {
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
   const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 5]);
-  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1,6]);
+  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 6]);
   return (
     <>
       <div className=" justify-center pt-[100vh] w-screen h-[400vh] bg-zinc-950 text-white ">
@@ -74,7 +74,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[20vw] h-[30vh] absolute left-20 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
+                className="surround-img w-[20vw] h-[30vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[4]})` }}
               ></motion.div>
             </motion.div>
@@ -94,7 +94,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[30vw] h-[30vh] absolute left-20 top-0 -translate-x-0 -translate-y-0 bg-center bg-cover"
+                className="surround-img w-[20vw] h-[30vh] absolute left-10 top-0 -translate-x-0 -translate-y-0 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[6]})` }}
               ></motion.div>
             </motion.div>
