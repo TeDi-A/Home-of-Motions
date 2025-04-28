@@ -17,34 +17,42 @@ export default function ParallaxZoom() {
     "../img-19.jpg",
     "../img-15.jpg",
   ];
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
 
-  const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
-
-  const itemWidth = window.innerWidth * 0.25;
-  const itemHeight = window.innerHeight * -0.7;
-  const itemRight = window.innerWidth * -0.15;
+  const itemWidth = window.innerWidth * -0.25;
+  const itemRight = window.innerWidth * -0.2;
+  const itemBottom = window.innerHeight * -0.05;
+  const itemHeight = window.innerHeight * -0.25;
 
   const WallX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, window.innerWidth * -1 - itemWidth - itemRight]
+    [0, windowWidth * -0.65 + itemWidth - itemRight]
+    // - itemWidth + itemRight + windowWidth
   );
   const WallY = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, window.innerHeight * -1 - itemHeight]
+    [0, windowHeight * 0.4 - itemHeight - itemBottom]
+    // - itemHeight + itemBottom + windowHeight
   );
-  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
-  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+
+  //   const translateImgX = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+  //   const translateImgY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
+  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 3]);
   return (
     <>
-      <div className=" justify-center pt-[100vh] w-screen h-[400vh] bg-zinc-900 text-white ">
+      <div className=" justify-center pt-[100vh] w-screen h-[500vh] bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[200vh] w-screen relative bg-black overflow-hidden"
+          className="sticky-container h-[300vh] w-screen relative bg-zinc-950 overflow-hidden "
         >
           <motion.div
-            className="sticky-content h-screen w-screen sticky top-0  "
+            className="sticky-content h-screen w-screen sticky top-0 "
             style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
           >
             <motion.div
@@ -79,8 +87,10 @@ export default function ParallaxZoom() {
 
             <motion.div className="image-container top-0 absolute w-full h-full ">
               <motion.div
-                className="star-img w-[25vw] h-[30vh] absolute right-[10vw] bottom-0 translate-y-0 bg-center bg-cover"
-                style={{ backgroundImage: `url(${imgs[3]})` }}
+                className="star-img w-[25vw] h-[25vh] absolute right-[20vw] bottom-[5vh] bg-center bg-cover"
+                style={{
+                  backgroundImage: `url(${imgs[3]})`,
+                }}
               ></motion.div>
             </motion.div>
 
@@ -89,7 +99,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[20vw] h-[30vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
+                className="surround-img w-[20vw] h-[25vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[4]})` }}
               ></motion.div>
             </motion.div>
@@ -109,7 +119,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[20vw] h-[30vh] absolute left-10 top-0 -translate-x-0 -translate-y-0 bg-center bg-cover"
+                className="surround-img w-[20vw] h-[30vh] absolute left-0 top-0 translate-x-1/2  -translate-y-0 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[6]})` }}
               ></motion.div>
             </motion.div>
