@@ -46,10 +46,10 @@ export default function ParallaxZoom() {
   const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 3]);
   return (
     <>
-      <div className=" justify-center pt-[100vh] w-screen h-[500vh] bg-black text-white ">
+      <div className=" justify-center pt-[100vh] w-screen h-[500dvh] bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[300vh] w-screen relative bg-zinc-950 overflow-hidden "
+          className="sticky-container h-[300dvh] w-screen relative bg-zinc-950 overflow-hidden "
         >
           <motion.div
             className="sticky-content h-screen w-screen sticky top-0 "
