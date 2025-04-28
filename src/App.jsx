@@ -26,11 +26,14 @@ import Home from "./layouts/HomePage";
 import Cards from "./layouts/Cards";
 import Vignette from "./layouts/Vignette";
 import StaggerCarousel from "./layouts/StaggerCarousel";
+import ParallaxZoom from "./layouts/ParallaxZoom";
+
 import { withFade } from "./helpers/PageWrap";
 
 const pages = [
   { path: "/", element: <Home />, wrap: true },
-  { path: "/staggercarousel", element: <StaggerCarousel /> },
+  { path: "/parallaxzoom", element: <ParallaxZoom />, wrap: true },
+  { path: "/staggercarousel", element: <StaggerCarousel />, wrap: true },
   { path: "/vignette", element: <Vignette />, wrap: true },
   { path: "/cards", element: <Cards />, wrap: true },
   { path: "/dragcarousel", element: <DragCarousel />, wrap: true },
