@@ -28,14 +28,6 @@ export default function ParallaxZoom() {
     offset: ["start start", "end end"],
   });
 
-  useEffect(() => {
-    const update = ({ timestamp }) => {
-      lenisRef.current?.lenis?.raf(timestamp);
-    };
-    frame.update(update, true);
-    return () => cancelFrame(update);
-  }, []);
-
   const [viewport, setViewport] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -53,38 +45,27 @@ export default function ParallaxZoom() {
   const windowWidth = viewport.width;
   const windowHeight = viewport.height;
 
-  const itemWidth = viewport.width * -0.25;
-  const itemRight = viewport.width * -0.2;
-  const itemBottom = viewport.height * -0.05;
-  const itemHeight = viewport.height * -0.25;
+  const itemWidth = viewport.width * 0.25;
+  const itemRight = viewport.width * 0.2;
+  const itemBottom = viewport.height * 0.05;
+  const itemHeight = viewport.height * 0.25;
 
   const WallX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, windowWidth * -0.65 + itemWidth - itemRight]
+    [0, windowWidth * -1 + itemWidth + itemRight / 4]
   );
   const WallY = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, windowHeight * 0.4 - itemHeight - itemBottom]
+    [0, windowHeight * 1 - itemHeight - itemBottom]
   );
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
   const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
   const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
   return (
-    <ReactLenis
-      root
-      options={{
-        duration: 0.5,
-        easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
-        smooth: true,
-        wheelMultiplier: 1.25,
-        touchMultiplier: 1.25,
-        lerp: 0.05,
-      }}
-      ref={lenisRef}
-    >
+    <ReactLenis root options={{}} ref={lenisRef}>
       <div className=" justify-center pt-[100svh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
@@ -163,6 +144,16 @@ export default function ParallaxZoom() {
               ></motion.div>
             </motion.div>
           </motion.div>
+        </div>
+
+        <div className="dummy-content relative bg-lime-950 h-screen text-white flex flex-col p-12 gap-4 items-center justify-center">
+          <h1 className="text-3xl font-bold">Lorem Ipsum</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+            qui! Rerum, ab maxime? Eius deserunt vero fuga alias sunt dolore
+            minima explicabo debitis, inventore excepturi. Maxime repellendus
+            cupiditate quibusdam rem.
+          </p>
         </div>
       </div>
     </ReactLenis>
