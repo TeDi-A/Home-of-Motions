@@ -56,7 +56,7 @@ export default function AnimateText() {
           );
         })}
       </motion.p>
-      <div className="h-screen w-screen bg-black" />
+      <div className="h-[30vh] w-screen bg-black" />
     </div>
   );
 }
