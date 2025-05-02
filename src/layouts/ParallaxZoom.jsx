@@ -42,6 +42,8 @@ export default function ParallaxZoom() {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  const containerHeight = Math.max(viewport.height * 3, 1000); // Ensure sufficient height
+
   const windowWidth = viewport.width;
   const windowHeight = viewport.height;
 
@@ -69,11 +71,12 @@ export default function ParallaxZoom() {
       <div className=" justify-center pt-[100svh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[300svh] w-screen relative bg-zinc-950 overflow-hidden "
+          className="sticky-container w-screen relative bg-zinc-950 overflow-hidden "
+          style={{height: `${containerHeight}px` }}
         >
           <motion.div
-            className="sticky-content h-[100svh] w-screen sticky top-0 will-change-transform"
-            style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
+            className="sticky-content w-screen sticky top-0 will-change-transform"
+            style={{ scale: scaleImgA, translateX: WallX, translateY: WallY, height: `${containerHeight/3}px` }}
           >
             <motion.div
               className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  will-change-transform"
