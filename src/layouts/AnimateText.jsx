@@ -22,7 +22,7 @@ export default function AnimateText() {
       <div className="h-screen w-screen" />
       <motion.p
         ref={textRef}
-        className="text-[2rem] font-bold bg-black text-white w-screen px-10 flex flex-wrap"
+        className="text-[2rem] font-bold bg-green-950 text-white w-screen px-10 flex flex-wrap"
       >
         {words.map((word, i) => {
           return (
