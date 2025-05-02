@@ -4,14 +4,7 @@ import { ReactLenis, useLenis } from "lenis/react";
 import { frame, cancelFrame } from "motion/react";
 
 export default function ParallaxZoom() {
-  const lenisRef = useRef(null);
-  useEffect(() => {
-    const update = ({ timestamp }) => {
-      lenisRef.current?.lenis?.raf(timestamp);
-    };
-    frame.update(update, true);
-    return () => cancelFrame(update);
-  }, []);
+
 
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -70,7 +63,7 @@ export default function ParallaxZoom() {
           className="sticky-container h-[300vh] w-screen relative bg-zinc-950 overflow-hidden "
         >
           <motion.div
-            className="sticky-content h-screen w-screen sticky top-0 "
+            className="sticky-content h-screen w-screen sticky top-0"
             style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
           >
             <motion.div
