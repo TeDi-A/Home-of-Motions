@@ -28,46 +28,10 @@ export default function ParallaxZoom() {
     offset: ["start start", "end end"],
   });
 
-  useEffect(() => {
-    const update = ({ timestamp }) => {
-      lenisRef.current?.lenis?.raf(timestamp);
-    };
-    frame.update(update, true);
-    return () => cancelFrame(update);
-  }, []);
 
-  const [viewport, setViewport] = useState({ width: 0, height: 0 });
 
-  useEffect(() => {
-    const updateSize = () => {
-      setViewport({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    updateSize();
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
-  const windowWidth = viewport.width;
-  const windowHeight = viewport.height;
-
-  const itemWidth = viewport.width * -0.25;
-  const itemRight = viewport.width * -0.2;
-  const itemBottom = viewport.height * -0.05;
-  const itemHeight = viewport.height * -0.25;
-
-  const WallX = useTransform(
-    scrollYProgress,
-    [0, 0],
-    [0, 0]
-  );
-  const WallY = useTransform(
-    scrollYProgress,
-    [0, 0],
-    [0, 0]
-  );
+  const WallX = useTransform(scrollYProgress, [0, 0], [0, 0]);
+  const WallY = useTransform(scrollYProgress, [0, 0], [0, 0]);
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
   const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1]);
@@ -75,15 +39,17 @@ export default function ParallaxZoom() {
   return (
     <ReactLenis
       root
-      options={{
-        // duration: 0.5,
-        // easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
-        // smooth: true,
-        // wheelMultiplier: 1.25,
-        // touchMultiplier: 1.25,
-        // lerp: 0.05,
-        // autoRaf: false,
-      }}
+      options={
+        {
+          // duration: 0.5,
+          // easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
+          // smooth: true,
+          // wheelMultiplier: 1.25,
+          // touchMultiplier: 1.25,
+          // lerp: 0.05,
+          // autoRaf: false,
+        }
+      }
       ref={lenisRef}
     >
       <div className=" justify-center pt-[100vh] w-screen bg-black text-white ">
