@@ -72,11 +72,16 @@ export default function ParallaxZoom() {
         <div
           ref={imgRef}
           className="sticky-container w-screen relative bg-zinc-950 overflow-hidden "
-          style={{height: `${containerHeight}px` }}
+          style={{ height: `${containerHeight}px` }}
         >
           <motion.div
             className="sticky-content w-screen sticky top-0 will-change-transform"
-            style={{ scale: scaleImgA, translateX: WallX, translateY: WallY, height: `${containerHeight/3}px` }}
+            style={{
+              scale: scaleImgA,
+              translateX: WallX,
+              translateY: WallY,
+              height: `${containerHeight / 3}px`,
+            }}
           >
             <motion.div
               className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  will-change-transform"
@@ -149,7 +154,7 @@ export default function ParallaxZoom() {
           </motion.div>
         </div>
 
-        <div className="dummy-content relative bg-lime-950 h-screen text-white flex flex-col p-12 gap-4 items-center justify-center">
+        <div className="dummy-content relative bg-stone-900 h-screen text-white flex flex-col p-12 gap-4 items-center justify-center">
           <h1 className="text-3xl font-bold">Lorem Ipsum</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
