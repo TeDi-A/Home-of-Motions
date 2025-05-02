@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   font-synthesis: none;
@@ -8,19 +8,16 @@
   --vh: 1vh; 
 }
 
-/* :root {
-} */
 
 * {
   margin: 0;
-  /* padding: 0; */
   box-sizing: border-box;
 }
 
 html {
-  /* position: relative;  */
+  position: relative; 
 }
 
 body{
   background-color: slategray;
-}
+} */
