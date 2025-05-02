@@ -69,7 +69,7 @@ export default function ParallaxZoom() {
         wheelMultiplier: 2,
         touchMultiplier: 2,
         lerp: 0.1,
-        autoRaf: false,
+   
       }}
     >
       <div className=" justify-center pt-[100vh] w-screen h-[500dvh] bg-black text-white ">
