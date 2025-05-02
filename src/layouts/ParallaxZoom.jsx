@@ -1,4 +1,10 @@
-import { motion, useScroll, useTransform, frame, cancelFrame } from "motion/react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  frame,
+  cancelFrame,
+} from "motion/react";
 import { useRef, useEffect } from "react";
 import { ReactLenis } from "lenis/react";
 
