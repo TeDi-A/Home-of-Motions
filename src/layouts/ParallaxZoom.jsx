@@ -61,12 +61,12 @@ export default function ParallaxZoom() {
   const WallX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, windowWidth * -0.65 + itemWidth - itemRight]
+    [0, 100]
   );
   const WallY = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, windowHeight * 0.4 - itemHeight - itemBottom]
+    [0, 100]
   );
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
