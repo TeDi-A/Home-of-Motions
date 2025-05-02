@@ -91,7 +91,7 @@ export default function ParallaxZoom() {
           className="sticky-container h-[300svh] w-screen relative bg-zinc-950 overflow-hidden "
         >
           <motion.div
-            className="sticky-content h-[100svh] w-screen sticky top-0 will-change-transform"
+            className="sticky-content h-[100svh] w-screen sticky top-0 will-change-auto"
             style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
           >
             <motion.div
