@@ -5,7 +5,8 @@ import {
   frame,
   cancelFrame,
 } from "motion/react";
-import { useRef, useEffect } from "react";
+
+import { useRef, useEffect, useState } from "react";
 import { ReactLenis } from "lenis/react";
 
 const imgs = [
@@ -35,13 +36,27 @@ export default function ParallaxZoom() {
     return () => cancelFrame(update);
   }, []);
 
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
+  const [viewport, setViewport] = useState({ width: 0, height: 0 });
 
-  const itemWidth = window.innerWidth * -0.25;
-  const itemRight = window.innerWidth * -0.2;
-  const itemBottom = window.innerHeight * -0.05;
-  const itemHeight = window.innerHeight * -0.25;
+  useEffect(() => {
+    const updateSize = () => {
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  const windowWidth = viewport.width;
+  const windowHeight = viewport.height;
+
+  const itemWidth = viewport.width * -0.25;
+  const itemRight = viewport.width * -0.2;
+  const itemBottom = viewport.height * -0.05;
+  const itemHeight = viewport.height * -0.25;
 
   const WallX = useTransform(
     scrollYProgress,
@@ -66,12 +81,12 @@ export default function ParallaxZoom() {
         smooth: true,
         wheelMultiplier: 1.25,
         touchMultiplier: 1.25,
-        lerp: 0.1,
+        lerp: 0.05,
         autoRaf: false,
       }}
       ref={lenisRef}
     >
-      <div className=" justify-center pt-[100vh] w-screen h-[500vh] bg-black text-white ">
+      <div className=" justify-center pt-[100vh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
           className="sticky-container h-[300vh] w-screen relative bg-zinc-950 overflow-hidden "
