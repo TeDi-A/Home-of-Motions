@@ -88,7 +88,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className="surround-img w-[25vw] h-[60vh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 bg-center bg-cover"
+                className="w-[25vw] h-[60vh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[1]})` }}
               ></motion.div>
             </motion.div>
@@ -98,7 +98,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[20vw] h-[30vh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 bg-center bg-cover"
+                className="w-[20vw] h-[30vh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[2]})` }}
               ></motion.div>
             </motion.div>
@@ -117,7 +117,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[20vw] h-[25vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
+                className="w-[20vw] h-[25vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[4]})` }}
               ></motion.div>
             </motion.div>
@@ -127,7 +127,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className="surround-img w-[25vw] h-[30vh] absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0 bg-center bg-cover"
+                className="w-[25vw] h-[30vh] absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[5]})` }}
               ></motion.div>
             </motion.div>
@@ -137,7 +137,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="surround-img w-[20vw] h-[30vh] absolute left-0 top-0 translate-x-1/2  -translate-y-0 bg-center bg-cover"
+                className="w-[20vw] h-[30vh] absolute left-0 top-0 translate-x-1/2  -translate-y-0 bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[6]})` }}
               ></motion.div>
             </motion.div>
