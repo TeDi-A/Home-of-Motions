@@ -28,8 +28,6 @@ export default function ParallaxZoom() {
     offset: ["start start", "end end"],
   });
 
-
-
   const WallX = useTransform(scrollYProgress, [0, 0], [0, 0]);
   const WallY = useTransform(scrollYProgress, [0, 0], [0, 0]);
 
