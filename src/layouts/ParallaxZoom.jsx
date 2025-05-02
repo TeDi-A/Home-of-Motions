@@ -1,8 +1,6 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, frame, cancelFrame } from "motion/react";
 import { useRef, useEffect } from "react";
 import { ReactLenis } from "lenis/react";
-import { Lenis } from "lenis/react";
-import { frame } from "motion/react";
 
 const imgs = [
   "../img-13.jpg",
