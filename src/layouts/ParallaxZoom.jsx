@@ -35,32 +35,18 @@ export default function ParallaxZoom() {
   const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1]);
   const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1]);
   return (
-    <ReactLenis
-      root
-      options={
-        {
-          // duration: 0.5,
-          // easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
-          // smooth: true,
-          // wheelMultiplier: 1.25,
-          // touchMultiplier: 1.25,
-          // lerp: 0.05,
-          // autoRaf: false,
-        }
-      }
-      ref={lenisRef}
-    >
-      <div className=" justify-center pt-[100vh] w-screen bg-black text-white ">
+    <ReactLenis root ref={lenisRef}>
+      <div className=" justify-center pt-[100svh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[300vh] w-screen relative bg-zinc-900 overflow-hidden "
+          className="sticky-container h-[300svh] w-screen relative bg-zinc-700 overflow-hidden "
         >
           <motion.div
-            className="sticky-content h-screen w-screen sticky top-0"
-            style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
+            className="sticky-content h-[100svh] w-screen sticky top-0"
+            style={{ scale: scaleImgA}}
           >
             <motion.div
-              className="image-container w-[25vw] h-[25vh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2"
+              className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -70,7 +56,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[25vw] h-[60vh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 border-2"
+              className="image-container w-[25vw] h-[60svh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 border-2"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -80,7 +66,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[30vh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 border-2"
+              className="image-container w-[20vw] h-[30svh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 border-2"
               style={{ scale: scaleImgC }}
             >
               <motion.div
@@ -89,7 +75,7 @@ export default function ParallaxZoom() {
               ></motion.div>
             </motion.div>
 
-            <motion.div className="image-container w-[25vw] h-[25vh] absolute right-[20vw] bottom-[5vh] border-2">
+            <motion.div className="image-container w-[25vw] h-[25svh] absolute right-[20vw] bottom-[5svh] border-2">
               <motion.div
                 className="star-img w-full h-full bg-center bg-cover"
                 style={{
@@ -99,7 +85,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[25vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 border-2"
+              className="image-container w-[20vw] h-[25svh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 border-2"
               style={{ scale: scaleImgC }}
             >
               <motion.div
@@ -109,7 +95,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container absolute w-[25vw] h-[30vh] left-1/2 top-0 -translate-x-1/2 -translate-y-0 border-2"
+              className="image-container absolute w-[25vw] h-[30svh] left-1/2 top-0 -translate-x-1/2 -translate-y-0 border-2"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -119,7 +105,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[30vh] absolute left-0 top-0 translate-x-1/2  -translate-y-0  border-2"
+              className="image-container w-[20vw] h-[30svh] absolute left-0 top-0 translate-x-1/2  -translate-y-0  border-2"
               style={{ scale: scaleImgC }}
             >
               <motion.div
