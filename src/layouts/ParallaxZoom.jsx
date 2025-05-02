@@ -70,8 +70,8 @@ export default function ParallaxZoom() {
   );
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
-  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
-  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 3]);
+  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1]);
+  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1]);
   return (
     <ReactLenis
       root
