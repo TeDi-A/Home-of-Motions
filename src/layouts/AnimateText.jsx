@@ -5,7 +5,7 @@ export default function AnimateText() {
   const textRef = useRef(null);
 
   const text =
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam voluptas natus ducimus dolorum iusto incidunt atque nulla id, voluptatibus nam possimus saepe enim, quam, sunt quaerat suscipit? Dicta, cum. Iste.";
+    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam voluptas natus ducimus dolorum iusto incidunt atque nulla id, voluptatibus nam possimus saepe enim, quam, sunt quaerat suscipit? Dicta, cum. Iste.  ";
 
   const words = text.split(" ");
 
@@ -14,7 +14,7 @@ export default function AnimateText() {
     offset: ["start 0.8", "start 0.3"],
   });
 
-  const totalChars = text.replace(/\s/g, "").length;
+  const totalChars = text.length;
   let globalCharIndex = 0;
 
   return (
@@ -56,7 +56,7 @@ export default function AnimateText() {
           );
         })}
       </motion.p>
-      <div className="h-[30vh] w-screen bg-black" />
+      <div className="h-[60vh] w-screen bg-black" />
     </div>
   );
 }
