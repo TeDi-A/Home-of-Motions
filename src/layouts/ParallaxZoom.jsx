@@ -59,14 +59,7 @@ export default function ParallaxZoom() {
     <ReactLenis
       root
       options={{
-        duration: 0.5,
-        easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
-        smooth: true,
-        smoothTouch: true,
-        smoothWheel: true,
-        wheelMultiplier: 2,
-        touchMultiplier: 2,
-        lerp: 0.1,
+
    
       }}
     >
