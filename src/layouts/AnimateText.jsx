@@ -18,11 +18,11 @@ export default function AnimateText() {
   let globalCharIndex = 0;
 
   return (
-    <div className="bg-black w-screen h-[100svh]">
+    <div className="bg-black w-screen h-[100vh]">
       <div className="h-screen w-screen" />
       <motion.p
         ref={textRef}
-        className="text-[2rem] font-bold bg-green-950 text-white w-screen px-10 flex flex-wrap"
+        className="text-[2rem] font-bold bg-black text-white w-screen px-10 flex flex-wrap"
       >
         {words.map((word, i) => {
           return (
