@@ -60,8 +60,8 @@ export default function ParallaxZoom() {
 
   const WallX = useTransform(
     scrollYProgress,
-    [0, 1],
-    [0, 100]
+    [0, 0],
+    [0, 0]
   );
   const WallY = useTransform(
     scrollYProgress,
@@ -110,7 +110,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className=" w-full h-full  bg-center bg-cover"
+                className=" w-full h-full bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[1]})` }}
               ></motion.div>
             </motion.div>
