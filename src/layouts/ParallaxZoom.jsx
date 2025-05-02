@@ -58,7 +58,8 @@ export default function ParallaxZoom() {
         smooth: true,
         smoothTouch: true,
         smoothWheel: true,
-        wheelMultiplier: 1.2,
+        wheelMultiplier: 2,
+        touchMultiplier: 2,
         lerp: 0.5,
         autoRaf: true,
       }}
