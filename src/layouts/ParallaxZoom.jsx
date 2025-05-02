@@ -1,11 +1,8 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useEffect, useState } from "react";
-import { ReactLenis, useLenis } from "lenis/react";
-import { frame, cancelFrame } from "motion/react";
+import { useRef } from "react";
+import { ReactLenis } from "lenis/react";
 
 export default function ParallaxZoom() {
-
-
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: imgRef,
