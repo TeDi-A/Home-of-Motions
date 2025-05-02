@@ -2,6 +2,8 @@ import {
   motion,
   useScroll,
   useTransform,
+  frame,
+  cancelFrame,
 } from "motion/react";
 
 import { useRef, useEffect, useState } from "react";
@@ -26,25 +28,74 @@ export default function ParallaxZoom() {
     offset: ["start start", "end end"],
   });
 
-  const WallX = useTransform(scrollYProgress, [0, 0], [0, 0]);
-  const WallY = useTransform(scrollYProgress, [0, 0], [0, 0]);
+  useEffect(() => {
+    const update = ({ timestamp }) => {
+      lenisRef.current?.lenis?.raf(timestamp);
+    };
+    frame.update(update, true);
+    return () => cancelFrame(update);
+  }, []);
+
+  const [viewport, setViewport] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateSize = () => {
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  const windowWidth = viewport.width;
+  const windowHeight = viewport.height;
+
+  const itemWidth = viewport.width * -0.25;
+  const itemRight = viewport.width * -0.2;
+  const itemBottom = viewport.height * -0.05;
+  const itemHeight = viewport.height * -0.25;
+
+  const WallX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, windowWidth * -0.65 + itemWidth - itemRight]
+  );
+  const WallY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, windowHeight * 0.4 - itemHeight - itemBottom]
+  );
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
-  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1]);
-  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1]);
+  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
+  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
   return (
-    <ReactLenis root ref={lenisRef}>
+    <ReactLenis
+      root
+      options={{
+        duration: 0.5,
+        easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
+        smooth: true,
+        wheelMultiplier: 1.25,
+        touchMultiplier: 1.25,
+        lerp: 0.05,
+      }}
+      ref={lenisRef}
+    >
       <div className=" justify-center pt-[100svh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[300svh] w-screen relative bg-zinc-700 overflow-hidden "
+          className="sticky-container h-[300svh] w-screen relative bg-zinc-950 overflow-hidden "
         >
           <motion.div
-            className="sticky-content h-[100svh] w-screen sticky top-0"
-            style={{ scale: scaleImgA}}
+            className="sticky-content h-[100svh] w-screen sticky top-0 will-change-transform"
+            style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
           >
             <motion.div
-              className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 will-change-transform"
+              className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  will-change-transform"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -54,7 +105,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[25vw] h-[60svh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 border-2 will-change-transform"
+              className="image-container w-[25vw] h-[60svh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2  will-change-transform"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -64,7 +115,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[30svh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 border-2 will-change-transform"
+              className="image-container w-[20vw] h-[30svh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0  will-change-transform"
               style={{ scale: scaleImgC }}
             >
               <motion.div
@@ -73,7 +124,7 @@ export default function ParallaxZoom() {
               ></motion.div>
             </motion.div>
 
-            <motion.div className="image-container w-[25vw] h-[25svh] absolute right-[20vw] bottom-[5svh] border-2 will-change-transform">
+            <motion.div className="image-container w-[25vw] h-[25svh] absolute right-[20vw] bottom-[5svh]  will-change-transform">
               <motion.div
                 className="star-img w-full h-full bg-center bg-cover"
                 style={{
@@ -83,7 +134,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[25svh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 border-2 will-change-transform"
+              className="image-container w-[20vw] h-[25svh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2  will-change-transform"
               style={{ scale: scaleImgC }}
             >
               <motion.div
@@ -93,7 +144,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container absolute w-[25vw] h-[30svh] left-1/2 top-0 -translate-x-1/2 -translate-y-0 border-2 will-change-transform"
+              className="image-container absolute w-[25vw] h-[30svh] left-1/2 top-0 -translate-x-1/2 -translate-y-0  will-change-transform"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -103,7 +154,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[30svh] absolute left-0 top-0 translate-x-1/2  -translate-y-0  border-2 will-change-transform"
+              className="image-container w-[20vw] h-[30svh] absolute left-0 top-0 translate-x-1/2  -translate-y-0   will-change-transform"
               style={{ scale: scaleImgC }}
             >
               <motion.div
