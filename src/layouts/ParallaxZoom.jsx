@@ -58,12 +58,20 @@ export default function ParallaxZoom() {
   const itemBottom = viewport.height * -0.05;
   const itemHeight = viewport.height * -0.25;
 
-  const WallX = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const WallY = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const WallX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, windowWidth * -0.65 + itemWidth - itemRight]
+  );
+  const WallY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, windowHeight * 0.4 - itemHeight - itemBottom]
+  );
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
-  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1]);
-  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 1]);
+  const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const scaleImgC = useTransform(scrollYProgress, [0, 1], [1, 3]);
   return (
     <ReactLenis
       root
@@ -81,45 +89,45 @@ export default function ParallaxZoom() {
       <div className=" justify-center pt-[100vh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[300vh] w-screen relative bg-zinc-500 overflow-hidden "
+          className="sticky-container h-[300vh] w-screen relative bg-zinc-900 overflow-hidden "
         >
           <motion.div
             className="sticky-content h-screen w-screen sticky top-0"
             style={{ scale: scaleImgA, translateX: WallX, translateY: WallY }}
           >
             <motion.div
-              className="image-container top-0 absolute w-full h-full border-0"
+              className="image-container w-[25vw] h-[25vh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2"
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className="center-img w-[25vw] h-[25vh] relative left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-center bg-cover"
+                className="center-img  w-full h-full bg-center  bg-cover"
                 style={{ backgroundImage: `url(${imgs[0]})` }}
               ></motion.div>
             </motion.div>
 
             <motion.div
-              className="image-container top-0 absolute w-full h-full "
+              className="image-container w-[25vw] h-[60vh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 border-2"
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className="w-[25vw] h-[60vh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 bg-center bg-cover"
+                className=" w-full h-full  bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[1]})` }}
               ></motion.div>
             </motion.div>
 
             <motion.div
-              className="image-container top-0 absolute w-full h-full "
+              className="image-container w-[20vw] h-[30vh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 border-2"
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="w-[20vw] h-[30vh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 bg-center bg-cover"
+                className="w-full h-full bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[2]})` }}
               ></motion.div>
             </motion.div>
 
-            <motion.div className="image-container top-0 absolute w-full h-full ">
+            <motion.div className="image-container w-[25vw] h-[25vh] absolute right-[20vw] bottom-[5vh] border-2">
               <motion.div
-                className="star-img w-[25vw] h-[25vh] absolute right-[20vw] bottom-[5vh] bg-center bg-cover"
+                className="star-img w-full h-full bg-center bg-cover"
                 style={{
                   backgroundImage: `url(${imgs[3]})`,
                 }}
@@ -127,38 +135,36 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container top-0 absolute w-full h-full "
+              className="image-container w-[20vw] h-[25vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 border-2"
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="w-[20vw] h-[25vh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 bg-center bg-cover"
+                className="w-full h-full bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[4]})` }}
               ></motion.div>
             </motion.div>
 
             <motion.div
-              className="image-container top-0 absolute w-full h-full "
+              className="image-container absolute w-[25vw] h-[30vh] left-1/2 top-0 -translate-x-1/2 -translate-y-0 border-2"
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className="w-[25vw] h-[30vh] absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0 bg-center bg-cover"
+                className=" w-full h-full bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[5]})` }}
               ></motion.div>
             </motion.div>
 
             <motion.div
-              className="image-container top-0 absolute w-full h-full "
+              className="image-container w-[20vw] h-[30vh] absolute left-0 top-0 translate-x-1/2  -translate-y-0  border-2"
               style={{ scale: scaleImgC }}
             >
               <motion.div
-                className="w-[20vw] h-[30vh] absolute left-0 top-0 translate-x-1/2  -translate-y-0 bg-center bg-cover"
+                className="w-full h-full bg-center bg-cover"
                 style={{ backgroundImage: `url(${imgs[6]})` }}
               ></motion.div>
             </motion.div>
           </motion.div>
         </div>
-
-
       </div>
     </ReactLenis>
   );
