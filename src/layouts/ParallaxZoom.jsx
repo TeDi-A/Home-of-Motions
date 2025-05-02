@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { ReactLenis } from "lenis/react";
+import { q } from "motion/react-client";
 
 export default function ParallaxZoom() {
   const imgRef = useRef(null);
@@ -29,7 +30,7 @@ export default function ParallaxZoom() {
   const WallX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, windowWidth * -0.65 + itemWidth - itemRight]
+    [0, windowWidth * 0.65 - itemWidth - itemRight]
   );
   const WallY = useTransform(
     scrollYProgress,
@@ -47,10 +48,8 @@ export default function ParallaxZoom() {
         duration: 0.5,
         easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
         smooth: true,
-        smoothTouch: true,
-        smoothWheel: true,
-        wheelMultiplier: 2,
-        touchMultiplier: 2,
+        wheelMultiplier: 1.25,
+        touchMultiplier: 1.25,
         lerp: 0.1,
       }}
     >
