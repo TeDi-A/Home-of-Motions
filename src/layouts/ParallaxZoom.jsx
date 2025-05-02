@@ -1,24 +1,36 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { ReactLenis } from "lenis/react";
-import { q } from "motion/react-client";
+import { Lenis } from "lenis/react";
+import { frame } from "motion/react";
+
+const imgs = [
+  "../img-13.jpg",
+  "../img-14.jpg",
+  "../img-12.jpg",
+  "../img-16.jpg",
+  "../img-17.jpg",
+  "../img-18.jpg",
+  "../img-19.jpg",
+  "../img-15.jpg",
+];
 
 export default function ParallaxZoom() {
+  const lenisRef = useRef(null);
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: imgRef,
     offset: ["start start", "end end"],
   });
-  const imgs = [
-    "../img-13.jpg",
-    "../img-14.jpg",
-    "../img-12.jpg",
-    "../img-16.jpg",
-    "../img-17.jpg",
-    "../img-18.jpg",
-    "../img-19.jpg",
-    "../img-15.jpg",
-  ];
+
+  useEffect(() => {
+    const update = ({ timestamp }) => {
+      lenisRef.current?.lenis?.raf(timestamp);
+    };
+    frame.update(update, true);
+    return () => cancelFrame(update);
+  }, []);
+
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
 
@@ -30,7 +42,7 @@ export default function ParallaxZoom() {
   const WallX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, windowWidth * 0.65 - itemWidth - itemRight]
+    [0, windowWidth * -0.65 + itemWidth - itemRight]
   );
   const WallY = useTransform(
     scrollYProgress,
@@ -51,7 +63,9 @@ export default function ParallaxZoom() {
         wheelMultiplier: 1.25,
         touchMultiplier: 1.25,
         lerp: 0.1,
+        autoRaf: false,
       }}
+      ref={lenisRef}
     >
       <div className=" justify-center pt-[100vh] w-screen h-[500vh] bg-black text-white ">
         <div
