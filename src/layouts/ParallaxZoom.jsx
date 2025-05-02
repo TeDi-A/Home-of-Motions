@@ -100,7 +100,7 @@ export default function ParallaxZoom() {
               style={{ scale: scaleImgB }}
             >
               <motion.div
-                className="center-img  w-full h-full bg-center  bg-cover"
+                className="center-img w-full h-full bg-center  bg-cover"
                 style={{ backgroundImage: `url(${imgs[0]})` }}
               ></motion.div>
             </motion.div>
