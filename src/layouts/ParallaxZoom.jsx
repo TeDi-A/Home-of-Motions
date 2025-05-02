@@ -81,7 +81,7 @@ export default function ParallaxZoom() {
       <div className=" justify-center pt-[100vh] w-screen bg-black text-white ">
         <div
           ref={imgRef}
-          className="sticky-container h-[300vh] w-screen relative bg-zinc-950 overflow-hidden "
+          className="sticky-container h-[300vh] w-screen relative bg-zinc-500 overflow-hidden "
         >
           <motion.div
             className="sticky-content h-screen w-screen sticky top-0"
