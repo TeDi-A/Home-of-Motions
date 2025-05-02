@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from "react";
 import { ReactLenis, useLenis } from "lenis/react";
 import { frame, cancelFrame } from "motion/react";
 
-
 export default function ParallaxZoom() {
   const lenisRef = useRef(null);
   useEffect(() => {
@@ -13,7 +12,6 @@ export default function ParallaxZoom() {
     frame.update(update, true);
     return () => cancelFrame(update);
   }, []);
-
 
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -42,15 +40,12 @@ export default function ParallaxZoom() {
     scrollYProgress,
     [0, 1],
     [0, windowWidth * -0.65 + itemWidth - itemRight]
-
   );
   const WallY = useTransform(
     scrollYProgress,
     [0, 1],
     [0, windowHeight * 0.4 - itemHeight - itemBottom]
-
   );
-
 
   const scaleImgA = useTransform(scrollYProgress, [0, 1], [1, 4]);
   const scaleImgB = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
@@ -59,8 +54,14 @@ export default function ParallaxZoom() {
     <ReactLenis
       root
       options={{
-
-   
+        duration: 0.5,
+        easing: (t) => 1 - Math.pow(1 - t, 2), // easeOutQuad
+        smooth: true,
+        smoothTouch: true,
+        smoothWheel: true,
+        wheelMultiplier: 2,
+        touchMultiplier: 2,
+        lerp: 0.1,
       }}
     >
       <div className=" justify-center pt-[100vh] w-screen h-[500vh] bg-black text-white ">
