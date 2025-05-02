@@ -144,7 +144,7 @@ export default function ParallaxZoom() {
           </motion.div>
         </div>
 
-        <div className="dummy-content relative h-screen text-white flex flex-col p-12 gap-4 items-center justify-center">
+        <div className="dummy-content relative bg-lime-700 h-screen text-white flex flex-col p-12 gap-4 items-center justify-center">
           <h1 className="text-3xl font-bold">Lorem Ipsum</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
