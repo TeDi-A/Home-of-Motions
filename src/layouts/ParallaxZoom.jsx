@@ -2,8 +2,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  frame,
-  cancelFrame,
 } from "motion/react";
 
 import { useRef, useEffect, useState } from "react";
@@ -46,7 +44,7 @@ export default function ParallaxZoom() {
             style={{ scale: scaleImgA}}
           >
             <motion.div
-              className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2"
+              className="image-container w-[25vw] h-[25svh] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 will-change-transform"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -56,7 +54,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[25vw] h-[60svh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 border-2"
+              className="image-container w-[25vw] h-[60svh] absolute right-0 top-1/3 -translate-x-1/3 -translate-y-1/2 border-2 will-change-transform"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -66,7 +64,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[30svh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 border-2"
+              className="image-container w-[20vw] h-[30svh] absolute left-2/5 bottom-0 -translate-x-1/2 translate-y-0 border-2 will-change-transform"
               style={{ scale: scaleImgC }}
             >
               <motion.div
@@ -75,7 +73,7 @@ export default function ParallaxZoom() {
               ></motion.div>
             </motion.div>
 
-            <motion.div className="image-container w-[25vw] h-[25svh] absolute right-[20vw] bottom-[5svh] border-2">
+            <motion.div className="image-container w-[25vw] h-[25svh] absolute right-[20vw] bottom-[5svh] border-2 will-change-transform">
               <motion.div
                 className="star-img w-full h-full bg-center bg-cover"
                 style={{
@@ -85,7 +83,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[25svh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 border-2"
+              className="image-container w-[20vw] h-[25svh] absolute left-0 top-1/2 translate-x-1/2  -translate-y-1/2 border-2 will-change-transform"
               style={{ scale: scaleImgC }}
             >
               <motion.div
@@ -95,7 +93,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container absolute w-[25vw] h-[30svh] left-1/2 top-0 -translate-x-1/2 -translate-y-0 border-2"
+              className="image-container absolute w-[25vw] h-[30svh] left-1/2 top-0 -translate-x-1/2 -translate-y-0 border-2 will-change-transform"
               style={{ scale: scaleImgB }}
             >
               <motion.div
@@ -105,7 +103,7 @@ export default function ParallaxZoom() {
             </motion.div>
 
             <motion.div
-              className="image-container w-[20vw] h-[30svh] absolute left-0 top-0 translate-x-1/2  -translate-y-0  border-2"
+              className="image-container w-[20vw] h-[30svh] absolute left-0 top-0 translate-x-1/2  -translate-y-0  border-2 will-change-transform"
               style={{ scale: scaleImgC }}
             >
               <motion.div
