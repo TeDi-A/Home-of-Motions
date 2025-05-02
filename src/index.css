@@ -1,23 +1,4 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --vh: 1vh; 
-}
-
-
-* {
+body{
   margin: 0;
   box-sizing: border-box;
 }
-
-html {
-  position: relative; 
-}
-
-body{
-  background-color: slategray;
-} */
