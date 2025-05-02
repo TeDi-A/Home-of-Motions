@@ -1,11 +1,19 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ReactLenis, useLenis } from "lenis/react";
+import { frame, cancelFrame } from "motion/react";
+
 
 export default function ParallaxZoom() {
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-  });
+  const lenisRef = useRef(null);
+  useEffect(() => {
+    const update = ({ timestamp }) => {
+      lenisRef.current?.lenis?.raf(timestamp);
+    };
+    frame.update(update, true);
+    return () => cancelFrame(update);
+  }, []);
+
 
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -60,7 +68,7 @@ export default function ParallaxZoom() {
         smoothWheel: true,
         wheelMultiplier: 2,
         touchMultiplier: 2,
-        lerp: 0.5,
+        lerp: 0.1,
         autoRaf: true,
       }}
     >
