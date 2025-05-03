@@ -18,7 +18,7 @@ export default function ParallaxBg() {
             src="../img-7.jpg"
             alt=""
             className="bg-cover bg-center w-full h-full absolute"
-            // animate={{y: 100}}
+     
             style={{
               translateY: translateUp,
               objectFit: "cover",

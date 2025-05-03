@@ -7,8 +7,8 @@ const projects = [
   { id: 2, name: "SwipeEntry", path: "/animateentry" },
   { id: 3, name: "ScrollX", path: "/scrollxbox" },
   { id: 4, name: "Notifications", path: "/notificationsapp" },
-  { id: 5, name: "Slideshow", path: "/slideshow" },
-  { id: 6, name: "Drag ]Transform", path: "/dragtransform" },
+  { id: 5, name: "SwapDiv", path: "/slideshow" },
+  { id: 6, name: "DragBg", path: "/dragtransform" },
   { id: 7, name: "StaggerNav", path: "/staggernav" },
   { id: 8, name: "TabSwitch", path: "/tabswitch" },
   //   { id: 9, name: "Drag Page", path: "/dragpage" },
@@ -88,9 +88,9 @@ export default function Home() {
             .reverse()
             .map((project) => (
               <motion.span
-                  key={project.id}
+                key={project.id}
                 className="p-1"
-                whileHover={{ scale: 1.1}}
+                whileHover={{ scale: 1.1 }}
               >
                 <Link
                   to={project.path}
