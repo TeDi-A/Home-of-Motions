@@ -82,7 +82,8 @@ export default function Home() {
           to Home of {""}
           <motion.h1 ref={floatRef}>Motions</motion.h1>
         </motion.div>
-        <div className="flex flex-wrap justify-center items-center gap-4 p-8">
+
+        <div className="flex flex-wrap justify-center items-center gap-4 p-6">
           {projects
             .slice()
             .reverse()
@@ -94,7 +95,7 @@ export default function Home() {
               >
                 <Link
                   to={project.path}
-                  className="bg-blue-600 text-white p-2 rounded-lg m-4 font-bold"
+                  className="bg-blue-600 text-white text-[0.75rem] md:text-[1rem] p-2 rounded-lg font-bold"
                 >
                   {project.name}
                 </Link>
