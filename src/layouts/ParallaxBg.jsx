@@ -6,7 +6,7 @@ export default function ParallaxBg() {
   const imgRef = useRef(null);
   const { scrollYProgress } = useScroll();
 
-  const translateUp = useTransform(scrollYProgress, [0, 1], ["0", "100vh"]);
+  const translateUp = useTransform(scrollYProgress, [0, 1], ["0", "125vh"]);
   const translateDown = useTransform(scrollYProgress, [0, 1], ["-15vh", "0vh"]);
 
   return (
