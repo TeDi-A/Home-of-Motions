@@ -28,11 +28,13 @@ import Vignette from "./layouts/Vignette";
 import StaggerCarousel from "./layouts/StaggerCarousel";
 import ParallaxZoom from "./layouts/ParallaxZoom";
 import AnimateText from "./layouts/AnimateText";
+import ParallaxBg from "./layouts/ParallaxBg";
 
 import { withFade } from "./helpers/PageWrap";
 
 const pages = [
   { path: "/", element: <Home />, wrap: true },
+  { path: "/parallaxbg", element: <ParallaxBg />, wrap: true },
   { path: "/animatetext", element: <AnimateText />, wrap: true },
   { path: "/parallaxzoom", element: <ParallaxZoom />, wrap: true },
   { path: "/staggercarousel", element: <StaggerCarousel />, wrap: true },
