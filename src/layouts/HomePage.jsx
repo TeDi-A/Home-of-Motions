@@ -95,7 +95,7 @@ export default function Home() {
               >
                 <Link
                   to={project.path}
-                  className="bg-blue-600 text-white text-[0.75rem] md:text-[1.01rem] p-2 rounded-lg font-bold"
+                  className="bg-blue-600 text-white text-[0.85rem] md:text-[1.01rem] p-2 rounded-lg font-bold"
                 >
                   {project.name}
                 </Link>
