@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, wrap } from "motion/react";
 import { useState } from "react";
 
 const carouselImages = [
@@ -27,8 +27,8 @@ export default function StaggerCarousel() {
   }
 
   const handleOnClick = (index) => {
-
     setSelectedIndex(index);
+    // const nextItem = wrap(0, images.length, index + 1);
   };
 
   return (

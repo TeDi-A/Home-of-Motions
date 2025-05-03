@@ -26,8 +26,8 @@ const projects = [
   { id: 21, name: "Vignette", path: "/vignette" },
   { id: 22, name: "StaggerCarousel", path: "/staggercarousel" },
   { id: 23, name: "ParallaxZoom", path: "/parallaxzoom" },
-  { id: 23, name: "AnimateText", path: "/animatetext" },
-  { id: 24, name: "ParallaxBg", path: "/parallaxbg" },
+  { id: 24, name: "AnimateText", path: "/animatetext" },
+  { id: 25, name: "ParallaxBg", path: "/parallaxbg" },
 ];
 
 export default function Home() {
