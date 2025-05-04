@@ -61,16 +61,16 @@ export default function Cards() {
     >
       {content.map((item, index) => {
         const originY = (index + 1) * window.innerHeight;
-
+        const scrollFinal = (index + 1) / content.length;
         const translateCardY = useTransform(
           scrollYProgress,
-          [0, (index + 1) / content.length],
-          [originY + "px", (index + 1) * 20 + "px"]
+          [0, scrollFinal - 0.2],
+          [originY + "px", (index + 1) * 30 + "px"]
         );
 
         const scaleCard = useTransform(
           scrollYProgress,
-          [0, 0.8],
+          [0, 1],
           [1, 0.8 + (index / content.length) * 0.2]
         );
 
