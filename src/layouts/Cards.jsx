@@ -77,7 +77,7 @@ export default function Cards() {
             return (
               <motion.div
                 key={index}
-                className="w-[85vw] h-[25vh] absolute top-[25vh] flex flex-colitems-center justify-center"
+                className="w-[85vw] h-[400px] absolute top-[25vh] flex flex-colitems-center justify-center"
                 animate={{
                   y: 20,
                 }}
