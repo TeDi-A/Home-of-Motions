@@ -52,14 +52,17 @@ export default function Cards() {
     },
   ];
 
-  const { scrollYProgress } = useScroll({ target: cardsRef });
+  const { scrollYProgress } = useScroll({
+    target: cardsRef,
+    offset: ["start start", "end end"],
+  });
 
   return (
-    <div className=" flex flex-col justify-center w-screen bg-gray-900 text-white">
+    <div className=" flex flex-col justify-center w-screen bg-gray-950 text-white">
       <section ref={cardsRef} className="w-screen h-[300vh] relative ">
-        <div className=" flex justify-center w-screen h-screen overflow-hidden border-2 border-red-500 sticky top-0">
+        <div className=" flex justify-center w-screen h-screen overflow-hidden sticky top-0">
           {content.map((item, index) => {
-            const originY = (index + 1) * window.innerHeight;
+            const originY = (index + 1  ) * window.innerHeight;
             const scrollFinal = (index + 1) / content.length;
             const translateCardY = useTransform(
               scrollYProgress,
@@ -74,7 +77,7 @@ export default function Cards() {
             return (
               <motion.div
                 key={index}
-                className="w-4/5 h-[400px] absolute top-0 flex flex-colitems-center justify-center"
+                className="w-[85vw] h-[25vh] absolute top-1/4 flex flex-colitems-center justify-center"
                 animate={{
                   y: 20,
                 }}
