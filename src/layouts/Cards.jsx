@@ -91,7 +91,7 @@ export default function Cards() {
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="p-6 text-center w-1/2">
+                  <div className="p-6 text-center w-1/2 h-[15vh]">
                     <h2 className="text-xl font-bold">{item.title}</h2>
                     <p className="text-sm">{item.description}</p>
                   </div>
