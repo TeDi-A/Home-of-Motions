@@ -1,6 +1,8 @@
 import { motion, useTransform, useScroll } from "motion/react";
+import { useRef } from "react";
 
 export default function Cards() {
+  const cardsRef = useRef(null);
   const imgs = [
     "../img-18.jpg",
     "../img-12.jpg",
@@ -53,7 +55,10 @@ export default function Cards() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className=" flex justify-center w-screen h-[300vh] bg-gray-900 text-white relative">
+    <div
+      ref={cardsRef}
+      className=" flex justify-center w-screen h-[300vh] bg-gray-900 text-white relative"
+    >
       {content.map((item, index) => {
         const originY = (index + 1) * window.innerHeight;
 
@@ -65,7 +70,7 @@ export default function Cards() {
 
         const scaleCard = useTransform(
           scrollYProgress,
-          [0, 0.9],
+          [0, 0.8],
           [1, 0.8 + (index / content.length) * 0.2]
         );
 
