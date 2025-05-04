@@ -52,7 +52,7 @@ export default function Cards() {
     },
   ];
 
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({ target: cardsRef });
 
   return (
     <div
@@ -64,7 +64,7 @@ export default function Cards() {
         const scrollFinal = (index + 1) / content.length;
         const translateCardY = useTransform(
           scrollYProgress,
-          [0, scrollFinal - 0.2],
+          [0, scrollFinal],
           [originY + "px", (index + 1) * 30 + "px"]
         );
 
