@@ -77,14 +77,14 @@ export default function Cards() {
             return (
               <motion.div
                 key={index}
-                className="w-[85vw] h-[400px] absolute top-[25vh] flex flex-colitems-center justify-center"
+                className="w-[85vw] h-[40vh] absolute top-[20vh] flex flex-colitems-center justify-center"
                 animate={{
                   y: 20,
                 }}
                 style={{ translateY: translateCardY, scale: scaleCard }}
               >
                 <motion.div
-                  className={`flex flex-col items-center justify-between w-full h-[300px] rounded-lg overflow-hidden ${item.color}`}
+                  className={`flex flex-col items-center justify-between w-full h-full rounded-lg overflow-hidden ${item.color}`}
                 >
                   <img
                     src={item.img}
