@@ -62,7 +62,7 @@ export default function Cards() {
       <section ref={cardsRef} className="w-screen h-[300vh] relative ">
         <div className=" flex justify-center w-screen h-screen overflow-hidden sticky top-0">
           {content.map((item, index) => {
-            const originY = (index + 1  ) * window.innerHeight;
+            const originY = (index + 1) * window.innerHeight;
             const scrollFinal = (index + 1) / content.length;
             const translateCardY = useTransform(
               scrollYProgress,
@@ -77,7 +77,7 @@ export default function Cards() {
             return (
               <motion.div
                 key={index}
-                className="w-[85vw] h-[25vh] absolute top-1/4 flex flex-colitems-center justify-center"
+                className="w-[85vw] h-[25vh] absolute top-[25vh] flex flex-colitems-center justify-center"
                 animate={{
                   y: 20,
                 }}
@@ -91,7 +91,7 @@ export default function Cards() {
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="p-4 text-center w-1/2">
+                  <div className="p-6 text-center w-1/2">
                     <h2 className="text-xl font-bold">{item.title}</h2>
                     <p className="text-sm">{item.description}</p>
                   </div>
