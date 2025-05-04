@@ -55,50 +55,53 @@ export default function Cards() {
   const { scrollYProgress } = useScroll({ target: cardsRef });
 
   return (
-    <div
-      ref={cardsRef}
-      className=" flex justify-center w-screen h-[330vh] bg-gray-900 text-white relative"
-    >
-      {content.map((item, index) => {
-        const originY = (index + 1) * window.innerHeight;
-        const scrollFinal = (index + 1) / content.length;
-        const translateCardY = useTransform(
-          scrollYProgress,
-          [0, scrollFinal],
-          [originY + "px", (index + 1) * 30 + "px"]
-        );
+    <div className=" flex flex-col justify-center w-screen bg-gray-900 text-white">
+      <section ref={cardsRef} className="w-screen h-[300vh] relative ">
+        <div className=" flex justify-center w-screen h-screen overflow-hidden border-2 border-red-500 sticky top-0">
+          {content.map((item, index) => {
+            const originY = (index + 1) * window.innerHeight;
+            const scrollFinal = (index + 1) / content.length;
+            const translateCardY = useTransform(
+              scrollYProgress,
+              [0, scrollFinal],
+              [originY + "px", (index + 1) * 20 + "px"]
+            );
+            const scaleCard = useTransform(
+              scrollYProgress,
+              [0, 1],
+              [1, 0.8 + (index / content.length) * 0.2]
+            );
+            return (
+              <motion.div
+                key={index}
+                className="w-4/5 h-[400px] absolute top-0 flex flex-colitems-center justify-center"
+                animate={{
+                  y: 20,
+                }}
+                style={{ translateY: translateCardY, scale: scaleCard }}
+              >
+                <motion.div
+                  className={`flex flex-col items-center justify-between w-full h-[300px] rounded-lg overflow-hidden ${item.color}`}
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="p-4 text-center w-1/2">
+                    <h2 className="text-xl font-bold">{item.title}</h2>
+                    <p className="text-sm">{item.description}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
 
-        const scaleCard = useTransform(
-          scrollYProgress,
-          [0, 1],
-          [1, 0.8 + (index / content.length) * 0.2]
-        );
-
-        return (
-          <motion.div
-            key={index}
-            className="w-4/5 h-[400px] fixed top-0 flex items-center justify-center"
-            animate={{
-              y: 20,
-            }}
-            style={{ translateY: translateCardY, scale: scaleCard }}
-          >
-            <motion.div
-              className={`flex flex-row items-center justify-between w-full h-[300px] rounded-lg overflow-hidden ${item.color}`}
-            >
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-1/2 h-full object-cover"
-              />
-              <div className="p-4 text-center w-1/2">
-                <h2 className="text-xl font-bold">{item.title}</h2>
-                <p className="text-sm">{item.description}</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        );
-      })}
+      <section className="textcontent text-4xl md:text-6xl font-bold w-screen h-screen relative flex items-center justify-center bg-black ">
+        <p>COOL CARDS!!</p>
+      </section>
     </div>
   );
 }
