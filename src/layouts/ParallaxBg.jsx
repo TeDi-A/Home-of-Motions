@@ -18,7 +18,6 @@ export default function ParallaxBg() {
             src="../img-7.jpg"
             alt=""
             className="bg-cover bg-center w-full h-full absolute"
-     
             style={{
               translateY: translateUp,
               objectFit: "cover",
@@ -26,7 +25,7 @@ export default function ParallaxBg() {
             }}
           />
         </div>
-        <div className="textContainer-1 my-[20vh] p-20 text-[2.5rem] md:text-[3.75rem] font-bold text-center w-screen h-screen flex items-center justify-center bg-black text-white">
+        <div className="textContainer-1  p-20 text-[2.5rem] md:text-[3.75rem] font-bold text-center w-screen h-[140vh] flex items-center justify-center bg-black text-white">
           PARALLAX BACKGROUND. <br /> THE FINAL MOTION PROJECT
         </div>
       </section>
