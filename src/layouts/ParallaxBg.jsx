@@ -48,7 +48,7 @@ export default function ParallaxBg() {
             style={{
               translateY: translateDown,
               objectFit: "cover",
-              opacity: 0.5,
+              opacity: 1,
             }}
           />
         </div>
