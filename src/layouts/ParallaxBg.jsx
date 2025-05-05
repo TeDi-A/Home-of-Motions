@@ -7,7 +7,7 @@ export default function ParallaxBg() {
   const { scrollYProgress } = useScroll();
 
   const translateUp = useTransform(scrollYProgress, [0, 1], ["0", "125vh"]);
-  const translateDown = useTransform(scrollYProgress, [0, 1], ["-15vh", "0vh"]);
+  const translateDown = useTransform(scrollYProgress, [0, 1], ["-20vh", "0vh"]);
 
   return (
     <div className="bg-wall w-screen h-[100lvh] bg-gray-950 ">
@@ -36,7 +36,7 @@ export default function ParallaxBg() {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         }}
       >
-        <div className="textContainer-2 h-screen w-screen p-20 text-[2rem] md:text-[3.75rem] font-bold text-center flex items-center justify-center bg-none text-white relative">
+        <div className="textContainer-2 h-screen w-screen p-20 text-[2rem] md:text-[3.75rem] font-bold text-center flex items-center justify-center  text-white relative">
           LEAVING MOTION NOW...
         </div>
 
