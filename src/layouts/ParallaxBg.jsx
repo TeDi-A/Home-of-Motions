@@ -55,7 +55,7 @@ export default function ParallaxBg() {
       </section>
 
       <section className="section-3">
-        <div className="textContainer-1 my-[20vh] p-20 text-[2rem] md:text-[3.75rem] font-bold text-center w-screen h-screen flex items-center justify-center bg-black text-white">
+        <div className="textContainer-1  p-20 text-[2rem] md:text-[3.75rem] font-bold text-center w-screen h-screen flex items-center justify-center bg-black text-white">
           SAYONARA!
         </div>
       </section>
